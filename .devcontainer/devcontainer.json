@@ -31,5 +31,15 @@
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root"
+	"remoteUser": "root",
+	"postStartCommand": "npm install",
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"budparr.language-hugo-vscode"
+			]
+		}
+	}
 }
