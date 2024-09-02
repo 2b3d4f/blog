@@ -1,2 +1,4 @@
+github.com/2b3d4f/hugo-module-host-gfonts-local v0.0.0-20240902000201-3485db32c0c9 h1:uQNmIEnPFBf2BueMjB7HksTUbzUMp8QUNkNSG/YbXBg=
+github.com/2b3d4f/hugo-module-host-gfonts-local v0.0.0-20240902000201-3485db32c0c9/go.mod h1:duPdtOSdCXNu/KSKDlJjAeGKz5Fcf/hpUNPIkhR9TzM=
 github.com/CaiJimmy/hugo-theme-stack/v3 v3.26.0 h1:kLZSTvo+E3S2YWw59DjXWtKLNbw3JaL7Z+VAjcegqa0=
 github.com/CaiJimmy/hugo-theme-stack/v3 v3.26.0/go.mod h1:IPmCXiIxlFSLFYS0tOmYP6ySLviyeNVSabyvSuaxD+I=
