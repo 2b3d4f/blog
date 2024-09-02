@@ -1,0 +1,34 @@
+{
+    "plugins": [
+        "prettier-plugin-go-template"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "*.html"
+            ],
+            "options": {
+                "parser": "go-template",
+                "tabWidth": 2,
+                "singleQuote": true,
+                "singleAttributePerLine": true
+            }
+        },
+        {
+            "files": [
+                "*.css"
+            ],
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": [
+                "*.md"
+            ],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
+}
