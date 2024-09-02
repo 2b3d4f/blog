@@ -1,0 +1,3 @@
+[mediaTypes]
+    [mediaTypes."font/woff2"]
+    suffixes = [ "woff2" ]

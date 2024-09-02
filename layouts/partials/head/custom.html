@@ -1,0 +1,12 @@
+<style>
+  /* Overwrite CSS variable */
+  :root {
+    --base-font-family: 'Noto Sans JP', var(--base-font-family), sans-serif;
+  }
+  pre,code,kbd,samp {
+    font-family: var(--code-font-family),monospace;
+  }
+</style>
+
+{{- $url := "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" }}
+{{- partialCached "gfonts.html" (dict "url" $url "fontsDir" "gfonts/fonts" "cssDir" "gfonts/css" "cssFile" "gfonts.css" ) }}
