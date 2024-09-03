@@ -1,3 +1,6 @@
 [mediaTypes]
     [mediaTypes."font/woff2"]
     suffixes = [ "woff2" ]
+
+[security.exec]
+osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|REMOTE_CONTAINERS_IPC)$']
