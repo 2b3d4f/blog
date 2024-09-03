@@ -29,6 +29,10 @@ jobs:
     env:
       HUGO_VERSION: 0.133.0
     steps:
+      - name: Set GOPRIVATE vars
+        run: |
+          export GOPRIVATE=${{ vars.GOPRIVATE }}
+      - run: echo "${{ vars.GOPRIVATE }}"
       - uses: actions/create-github-app-token@v1
         id: app-token
         with:
