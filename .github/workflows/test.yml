@@ -33,7 +33,7 @@ jobs:
         run: |
           export GOPRIVATE=${{ vars.GOPRIVATE }}
       - run: |
-          export HUGO_SECURITY_EXEC_OSENV=(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|XDG_CONFIG_HOME|SSH_AUTH_SOCK)$
+          export HUGO_SECURITY_EXEC_OSENV="(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|XDG_CONFIG_HOME|SSH_AUTH_SOCK)$"
       - run: |
           echo ${{ secrets.GH_PAT }}
       - name: Granting private modules access
