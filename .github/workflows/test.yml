@@ -29,30 +29,20 @@ jobs:
     env:
       HUGO_VERSION: 0.133.0
     steps:
-      - name: Set GOPRIVATE vars
-        run: |
-          export GOPRIVATE=${{ vars.GOPRIVATE }}
-      - run: |
-          export HUGO_SECURITY_EXEC_OSENV="(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|XDG_CONFIG_HOME|SSH_AUTH_SOCK)$"
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - run: |
           echo ${{ secrets.GH_PAT }}
       - name: Granting private modules access
         run: |
           git config --global url."https://2b3d4f:${{ secrets.GH_PAT }}@github.com/".insteadOf "https://github.com/"
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
         with:
-          submodules: recursive
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Build with Hugo
-        env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
-          HUGO_ENVIRONMENT: production
-        run: |
-          hugo mod get -u
+          hugo-version: 'latest'
+          extended: true
+      - name: Build
+        run: hugo --minify
+
