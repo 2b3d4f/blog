@@ -28,17 +28,14 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.133.0
-      HUGO_SECURITY_EXEC_OSENV: (?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|XDG_CONFIG_HOME|SSH_AUTH_SOCK)$
     steps:
       - name: Set GOPRIVATE vars
         run: |
           export GOPRIVATE=${{ vars.GOPRIVATE }}
       - run: |
-          export HUGO_SECURITY_EXEC_OSENV=${ HUGO_SECURITY_EXEC_OSENV }
+          export HUGO_SECURITY_EXEC_OSENV=(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|XDG_CONFIG_HOME|SSH_AUTH_SOCK)$
       - run: |
           echo ${{ secrets.GH_PAT }}
-      - run: |
-          echo ${ HUGO_SECURITY_EXEC_OSENV }
       - name: Granting private modules access
         run: |
           git config --global url."https://${{ secrets.GH_PAT }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
